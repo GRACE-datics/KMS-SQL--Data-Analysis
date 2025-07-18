@@ -54,17 +54,16 @@ This analysis aims to:
 ## 🛠️ Tools Used
 
 - **SQL Server Management Studio (SSMS)** – for querying and data manipulation
-- **T-SQL** – for advanced filtering, aggregation, and subqueries
-- **Excel (optional)** – for visualizing results or summaries
+- **Excel (optional)** – for data cleaning and visualizing results or summaries
 
 ---
 
 ## 📈 Key Insights
 
-- Returns and loss-making orders were inferred using **negative profit**, **100% discount**, or **zero sales**.
+- Returns and loss-making orders were inferred using **duplicate order IDs**.
 - Some products were shipped using **premium methods** despite having **low priority**, raising cost-efficiency concerns.
-- Corporate and home office customers contributed heavily to revenue, but many were also involved in returned/loss orders.
-- Significant potential exists in targeting **low-performing customers** with bundled offers or lower-cost shipping.
+- Some products were shipped using **low cost methods** despite having **critical/high priority**, posing a risk to customer satisfaction.
+- Significant potential exists in targeting **low-performing customers** with peraonalized/bundled offers or lower-cost shipping.
 
 ---
 
@@ -79,24 +78,14 @@ GROUP BY Order_ID
 HAVING COUNT(*) > 1;
 ```
 
-**Get returned product candidates:**
-
-```sql
-SELECT *
-FROM KMS_order
-WHERE Profit < 0 OR Sales = 0 OR Discount = 1.0;
-```
-
----
-
 ## 🚀 Future Work
 
 - Automate return prediction using machine learning
 - Integrate the dataset into Power BI for live dashboards
 - Perform time series forecasting on seasonal sales trends
-
+  
 ---
 
 ## 📬 Contact
 
-Feel free to connect or reach out via [LinkedIn](#) or [email](mailto:your-email@example.com) for questions or collaboration.
+Feel free to connect or reach out via [LinkedIn](Ayomide Oguntodu) or [email](ayomidegrace100@gmail.com) for questions or collaboration.
